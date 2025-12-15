@@ -51,3 +51,5 @@ async def ingest_email(email: EmailPayload):
 @app.get("/health")
 def health():
     return {"status": "ok", "kafka": KAFKA_BROKER}
+
+
