@@ -1,6 +1,7 @@
 import asyncio
 import json
 import os
+from datetime import timedelta
 from temporalio import workflow, activity
 from temporalio.client import Client
 from temporalio.worker import Worker
@@ -37,7 +38,7 @@ class IntakeWorkflow:
         intent = await workflow.execute_activity(
             classify_email,
             email_data,
-            start_to_close_timeout=asyncio.timedelta(seconds=5)
+            start_to_close_timeout=timedelta(seconds=5)
         )
         
         # Step 2: Decide next step (Logic Placeholder)
